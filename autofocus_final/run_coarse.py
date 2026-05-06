@@ -22,6 +22,13 @@ af = AutofocusSystem(
 
 # ===== RUN COARSE =====
 result = af.coarse_focus()
+import matplotlib.pyplot as plt
+
+plt.plot(result.z_samples, result.score_samples)
+plt.xlabel("Z position")
+plt.ylabel("Focus score")
+plt.title("Focus Curve")
+plt.show()
 
 print("\n=== COARSE RESULT ===")
 print("Success:", result.success)
@@ -29,3 +36,4 @@ print("Best Z:", result.best_z)
 print("Score:", result.best_score)
 print("SNR:", result.snr)
 print("Prominence:", result.prominence)
+
